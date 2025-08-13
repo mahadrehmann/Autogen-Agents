@@ -1,0 +1,10 @@
+dotenv
+# AutoGen v0.4+ pieces
+autogen-agentchat
+autogen-core
+autogen-ext[openai]
+
+# (installed via autogen-ext[openai]) OpenAI client used under the hood
+openai
+playwright
+
