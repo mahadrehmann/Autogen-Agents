@@ -4,7 +4,7 @@ import dotenv
 dotenv.load_dotenv()
 
 from autogen_agentchat.agents import AssistantAgent
-from autogen_agentchat.ui import Console
+from autogen_agentchat.ui import Consolecl
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 # Define your Gemini-compatible model client
@@ -41,3 +41,15 @@ async def main() -> None:
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+'''
+ouptut:
+---------- TextMessage (user) ----------
+What is the weather in Peshawar?
+---------- ToolCallRequestEvent (weather_agent) ----------
+[FunctionCall(id='', arguments='{"city":"Peshawar"}', name='get_weather')]
+---------- ToolCallExecutionEvent (weather_agent) ----------
+[FunctionExecutionResult(content='The weather in Peshawar is likely sunny and 73°F (fictional for demo).', name='get_weather', call_id='', is_error=False)]
+---------- ModelClientStreamingChunkEvent (weather_agent) ----------
+The weather in Peshawar is likely sunny and 73°F (fictional for demo).
+'''

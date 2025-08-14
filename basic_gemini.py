@@ -19,7 +19,7 @@ async def main():
         model_info={
             "vision": True,
             "function_calling": True,
-            "json_output": True,
+            "json_output": False,
             "family": "unknown",
         },
     )
@@ -32,8 +32,16 @@ async def main():
     )
 
     # 3) Run a tiny task
-    result = await assistant.run(task="Say 'Hello, world!' and one fun fact about Karachi.")
+    result = await assistant.run(task="Say 'Hello, world!' and tell me a dark joke.")
+    print("---------Answer----------")  # prints the assistant’s reply
     print(result)  # prints the assistant’s reply
+
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+'''
+output:
+---------Answer----------
+messages=[TextMessage(id='51...714', source='user', models_usage=None, metadata={}, created_at=datetime.datetime(2025, 8, 13, 19, 46, 59, 297318, tzinfo=datetime.timezone.utc), content="Say 'Hello, world!' and tell me a dark joke.", type='TextMessage'), TextMessage(id='a73...38da7', source='helper', models_usage=RequestUsage(prompt_tokens=19, completion_tokens=20), metadata={}, created_at=datetime.datetime(2025, 8, 13, 19, 47, 1, 304821, tzinfo=datetime.timezone.utc), content="Hello, world!\n\nWhy don't scientists trust atoms? Because they make up everything!\n", type='TextMessage')] stop_reason=None
+'''
